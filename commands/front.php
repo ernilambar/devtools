@@ -21,11 +21,11 @@ class Devtools_Front_Command {
 	 *
 	 *     # Set front page display to latest posts.
 	 *     $ wp dt front post
-	 *     Success: Front Page Displayes set to Latest Posts.
+	 *     Success: Front page displays set to Latest Posts.
 	 *
 	 *     # Set front page display to static page.
 	 *     $ wp dt front page
-	 *     Success: Front Page Displayes set to Static Page.
+	 *     Success: Front page displays set to Static Page.
 	 */
 	public function __invoke( $args, $assoc_args ) {
 
