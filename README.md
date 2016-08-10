@@ -35,7 +35,7 @@ Success: Front page displays set to Latest Posts.
 ~~~
 
 ### wp dt wpbeta
-Manage Beta Tester Mode.
+Manage Beta Tester Mode. Requires `WordPress Beta Tester` plugin.
 
 ~~~
 wp dt wpbeta <mode>
@@ -46,6 +46,17 @@ wp dt wpbeta <mode>
 	<mode>
 		Beta mode; `bleeding` or `point`.
 
+**EXAMPLES**
+
+~~~
+# Set mode to bleeding edge.
+$ wp dt wpbeta bleeding
+Success: Mode set to 'Bleeding edge nightlies'.
+
+# Set mode to point release.
+$ wp dt wpbeta point
+Success: Mode set to 'Point release nightlies'.
+~~~
 
 ## Installing
 
