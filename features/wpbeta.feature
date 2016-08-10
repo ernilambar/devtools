@@ -3,6 +3,9 @@ Feature: Test WordPress Beta Tester.
   Scenario: Beta tester mode
     Given a WP install
 
+    When I run `wp plugin install wordpress-beta-tester --activate`
+    Then STDOUT should not be empty
+
     When I run `wp dt wpbeta bleeding`
     Then STDOUT should be:
       """
