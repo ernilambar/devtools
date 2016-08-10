@@ -1,5 +1,7 @@
 Feature: Test Front Page Settings.
-  Given a WP install
+
+  Background:
+    Given a WP install
 
   Scenario: Post as Front Page Settings
 
