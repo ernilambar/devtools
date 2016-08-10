@@ -22,6 +22,17 @@ wp dt front <mode>
 	<mode>
 		Front page mode; `page` or `post`.
 
+**EXAMPLES**
+
+~~~
+# Set front page display to static page.
+$ wp dt front page
+Success: Front page displays set to Static Page.
+
+# Set front page display to latest posts.
+$ wp dt front post
+Success: Front page displays set to Latest Posts.
+~~~
 
 ### wp dt wpbeta
 Manage Beta Tester Mode.
