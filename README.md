@@ -5,7 +5,36 @@ ernilambar/devtools
 
 [![Build Status](https://travis-ci.org/ernilambar/devtools.svg?branch=master)](https://travis-ci.org/ernilambar/devtools)
 
-Quick links: [Installing](#installing) | [Contributing](#contributing)
+Quick links: [Using](#using) | [Installing](#installing) | [Contributing](#contributing)
+
+## Using
+This package implements the following commands:
+
+### wp dt front
+Manage Front Page Settings.
+
+~~~
+wp dt front <mode>
+~~~
+
+**OPTIONS**
+
+	<mode>
+		Front page mode; `page` or `post`.
+
+
+### wp dt wpbeta
+Manage Beta Tester Mode.
+
+~~~
+wp dt wpbeta <mode>
+~~~
+
+**OPTIONS**
+
+	<mode>
+		Beta mode; `bleeding` or `point`.
+
 
 ## Installing
 
