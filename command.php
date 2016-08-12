@@ -9,3 +9,6 @@ require_once 'commands/wpbeta.php';
 
 // Front page settings.
 require_once 'commands/front.php';
+
+// Social.
+require_once 'commands/social.php';
