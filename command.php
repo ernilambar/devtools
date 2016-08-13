@@ -15,3 +15,6 @@ require_once 'commands/social.php';
 
 // Image.
 require_once 'commands/image.php';
+
+// Widget.
+require_once 'commands/widget.php';
