@@ -34,6 +34,45 @@ $ wp dt front post
 Success: Front page displays set to Latest Posts.
 ~~~
 
+### wp dt image
+Display Image Info.
+
+~~~
+wp dt image info
+~~~
+
+**EXAMPLES**
+
+~~~
+# List registered image sizes.
+$ wp dt image info
++----------------+-------+--------+------+
+| id             | width | height | crop |
++----------------+-------+--------+------+
+| thumbnail      | 150   | 150    | 1    |
+| medium         | 300   | 300    |      |
+| large          | 1024  | 1024   |      |
+| post-thumbnail | 1200  | 9999   |      |
++----------------+-------+--------+------+
+~~~
+
+### wp dt widget
+Widget tools
+
+~~~
+wp dt widget test
+~~~
+
+Add test widgets to every sidebar.
+
+**EXAMPLES**
+
+~~~
+# Add test widgets in each sidebar.
+$ wp dt widget test
+Success: Test widgets added successfully.
+~~~
+
 ### wp dt wpbeta
 Manage Beta Tester Mode. Requires `WordPress Beta Tester` plugin.
 

@@ -3,7 +3,7 @@ Feature: Test Widget commands.
   Scenario: Widget test
     Given a WP install
 
-    When I run `wp theme install twentysixteen --activate`
+    When I run `wp theme install p2 --activate`
     And I run `wp widget reset --all`
     Then STDOUT should not be empty
 
