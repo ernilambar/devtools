@@ -131,7 +131,7 @@ class Devtools_Social_Command {
 	 * [--count=<number>]
 	 * : How many social icons?
 	 * ---
-	 * default: 20
+	 * default: 5
 	 * ---
 	 *
 	 * [--porcelain]
@@ -149,21 +149,38 @@ class Devtools_Social_Command {
 	 */
 	public function __invoke( $args, $assoc_args ) {
 
-		$menu_id = wp_create_nav_menu( $args[0] );
+		$social_menu = $this->create_social_menu( $args[0], $assoc_args );
 
-		if ( is_wp_error( $menu_id ) ) {
+		if ( false === $social_menu ) {
 
-			WP_CLI::error( $menu_id->get_error_message() );
+			WP_CLI::error( 'Social menu could not be created.' );
 
 		} else {
 
 			if ( \WP_CLI\Utils\get_flag_value( $assoc_args, 'porcelain' ) ) {
-				WP_CLI::line( $menu_id );
+				WP_CLI::line( $social_menu );
 			} else {
-				WP_CLI::success( "Created menu $menu_id." );
+				WP_CLI::success( 'Social menu created successfully.' );
 			}
 
 		}
+
+	}
+
+	private function create_social_menu( $menu_name, $assoc_args ) {
+
+		$menu_id = wp_create_nav_menu( $menu_name );
+
+		if ( is_wp_error( $menu_id ) ) {
+			WP_CLI::error( $menu_id->get_error_message() );
+		}
+		else {
+			if ( $menu_id ) {
+				// Add social items.
+			}
+		}
+
+		return $menu_id;
 
 	}
 
