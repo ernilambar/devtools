@@ -12,3 +12,6 @@ require_once 'commands/front.php';
 
 // Social.
 require_once 'commands/social.php';
+
+// Image.
+require_once 'commands/image.php';
