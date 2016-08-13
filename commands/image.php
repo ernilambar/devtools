@@ -14,13 +14,43 @@ class Devtools_Image_Command {
 	/**
 	 * Image info.
 	 *
+	 * ## OPTIONS
+	 *
+	 * [--fields=<fields>]
+	 * : Limit the output to specific object fields.
+	 *
+	 * [--format=<format>]
+	 * : Render output in a particular format.
+	 * ---
+	 * default: table
+	 * options:
+	 *   - table
+	 *   - csv
+	 *   - json
+	 *   - ids
+	 *   - count
+	 *   - yaml
+	 * ---
+	 *
+	 * ## AVAILABLE FIELDS
+	 *
+	 * These fields will be displayed by default:
+	 *
+	 * * id
+	 * * width
+	 * * height
+	 * * crop
+	 *
 	 * ## EXAMPLES
 	 *
-	 *     # List image sizes and info.
+	 *     # List registered image sizes.
 	 *     $ wp dt image info
 	 *     +----------------+-------+--------+------+
 	 *     | id             | width | height | crop |
 	 *     +----------------+-------+--------+------+
+	 *     | thumbnail      | 150   | 150    | 1    |
+	 *     | medium         | 300   | 300    |      |
+	 *     | large          | 1024  | 1024   |      |
 	 *     | post-thumbnail | 1200  | 9999   |      |
 	 *     +----------------+-------+--------+------+
 	 */
@@ -44,6 +74,15 @@ class Devtools_Image_Command {
 
 		$output = array();
 		global $_wp_additional_image_sizes;
+
+		foreach ( array( 'thumbnail', 'medium', 'large' ) as $key => $size ) {
+			$item           = array();
+			$item['id']     = $size;
+			$item['width']  = get_option( $size . '_size_w' );
+			$item['height'] = get_option( $size . '_size_h' );
+			$item['crop']   = get_option( $size . '_crop' );
+			$output[ $key ] = $item;
+		}
 
 		if ( ! empty( $_wp_additional_image_sizes ) ) {
 			foreach ($_wp_additional_image_sizes as $key => $val ) {
