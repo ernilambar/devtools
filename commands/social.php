@@ -151,11 +151,7 @@ class Devtools_Social_Command {
 
 		$social_menu = $this->create_social_menu( $args[0], $assoc_args );
 
-		if ( false === $social_menu ) {
-
-			WP_CLI::error( 'Social menu could not be created.' );
-
-		} else {
+		if ( ! is_wp_error( $social_menu ) ) {
 
 			if ( \WP_CLI\Utils\get_flag_value( $assoc_args, 'porcelain' ) ) {
 				WP_CLI::line( $social_menu );
@@ -175,8 +171,13 @@ class Devtools_Social_Command {
 			WP_CLI::error( $menu_id->get_error_message() );
 		}
 		else {
-			if ( $menu_id ) {
-				// Add social items.
+			$total = count( $this->arr );
+			$count = $assoc_args['count'];
+			for ($i = 0; $i < $total ; $i++ ) {
+				$response = WP_CLI::launch_self( 'menu item add-custom', array( $menu_id, $this->arr[ $i ]['menu-item-title'], $this->arr[ $i ]['menu-item-url'] ), array(), false, true );
+				if ( $i === ( $count - 1 ) ) {
+					break;
+				}
 			}
 		}
 
