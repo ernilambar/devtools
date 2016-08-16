@@ -119,7 +119,6 @@ class Devtools_Social_Command {
 			),
 		);
 
-
 	/**
 	 * Create a new social menu.
 	 *
@@ -139,13 +138,9 @@ class Devtools_Social_Command {
 	 *
 	 * ## EXAMPLES
 	 *
-	 *     # Set front page display to latest posts.
-	 *     $ wp dt front post
-	 *     Success: Front page displays set to Latest Posts.
-	 *
-	 *     # Set front page display to static page.
-	 *     $ wp dt front page
-	 *     Success: Front page displays set to Static Page.
+	 *     # Create social menu.
+	 *     $ wp dt social "My Social Menu"
+	 *     Success: Social menu created successfully.
 	 */
 	public function __invoke( $args, $assoc_args ) {
 

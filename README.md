@@ -14,6 +14,32 @@ This package implements the following commands:
 Manage Front Page Settings.
 
 ~~~
+wp dt social <menu-name>
+~~~
+
+**OPTIONS**
+
+	<menu-name>
+		A descriptive name for the menu.
+
+	[--count=<number>]
+		How many social icons? Default: 5
+
+	[--porcelain]
+		Output just the new menu id.
+
+**EXAMPLES**
+
+~~~
+# Create social menu.
+$ wp dt social "My Social Menu"
+Success: Social menu created successfully.
+~~~
+
+### wp dt front
+Manage Front Page Settings.
+
+~~~
 wp dt front <mode>
 ~~~
 
