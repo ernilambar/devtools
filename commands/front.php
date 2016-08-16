@@ -66,7 +66,7 @@ class Devtools_Front_Command {
 
     	// Check front page.
 		$page_id = null;
-    	$response = WP_CLI::launch_self( 'post list', array(), array( 'post_type' => 'page', 'name' => 'front-page', 'field' => 'ID' ), false, true );
+    	$response = WP_CLI::launch_self( 'post list', array(), array( 'post_type' => 'page', 'name' => 'front-page', 'field' => 'ID', 'format' => 'ids' ), false, true );
     	if ( absint( $response->stdout ) > 0 ) {
     		$page_id = $response->stdout;
     	}
@@ -86,7 +86,7 @@ class Devtools_Front_Command {
 
     	// Check blog page.
 		$page_id = null;
-		$response = WP_CLI::launch_self( 'post list', array(), array( 'post_type' => 'page', 'name' => 'blog', 'field' => 'ID' ), false, true );
+		$response = WP_CLI::launch_self( 'post list', array(), array( 'post_type' => 'page', 'name' => 'blog', 'field' => 'ID', 'format' => 'ids' ), false, true );
 		if ( absint( $response->stdout ) > 0 ) {
 			$page_id = $response->stdout;
 		}
