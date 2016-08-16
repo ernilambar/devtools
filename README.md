@@ -1,8 +1,6 @@
 ernilambar/devtools
 ===================
 
-
-
 [![Build Status](https://travis-ci.org/ernilambar/devtools.svg?branch=master)](https://travis-ci.org/ernilambar/devtools)
 
 Quick links: [Using](#using) | [Installing](#installing) | [Contributing](#contributing)
@@ -10,8 +8,8 @@ Quick links: [Using](#using) | [Installing](#installing) | [Contributing](#contr
 ## Using
 This package implements the following commands:
 
-### wp dt front
-Manage Front Page Settings.
+### wp dt social
+Create social menu.
 
 ~~~
 wp dt social <menu-name>
