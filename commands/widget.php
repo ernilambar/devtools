@@ -10,7 +10,7 @@ class Devtools_Widget_Command {
 	 * ## OPTIONS
 	 *
 	 * <widget-id>
-	 * : Widget ID.
+	 * : Widget ID to duplicate.
 	 *
 	 * ## EXAMPLES
 	 *

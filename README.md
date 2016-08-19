@@ -84,6 +84,25 @@ $ wp dt image info
 Widget tools
 
 ~~~
+wp dt widget duplicate
+~~~
+
+Duplicate given widget instance and place it just after the widget in the sidebar.
+
+**OPTIONS**
+
+	<widget-id>
+		Widget ID to duplicate.
+
+**EXAMPLES**
+
+~~~
+# Duplicate text widget.
+$ wp dt widget duplicate text-2
+Success: Widget duplicated to 'text-3'.
+~~~
+
+~~~
 wp dt widget test
 ~~~
 
