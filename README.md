@@ -3,7 +3,17 @@ ernilambar/devtools
 
 [![Build Status](https://travis-ci.org/ernilambar/devtools.svg?branch=master)](https://travis-ci.org/ernilambar/devtools)
 
-Quick links: [Using](#using) | [Installing](#installing) | [Contributing](#contributing)
+Quick links: [Installing](#installing) | [Using](#using) | [Contributing](#contributing)
+
+## Installing
+
+Installing this package requires WP-CLI v0.23.0 or greater. Update to the latest stable release with `wp cli update`.
+
+Once you've done so, you can install this package with following command.
+
+```bash
+wp package install git@github.com:ernilambar/devtools.git
+```
 
 ## Using
 This package implements the following commands:
@@ -139,12 +149,6 @@ Success: Mode set to 'Bleeding edge nightlies'.
 $ wp dt wpbeta point
 Success: Mode set to 'Point release nightlies'.
 ~~~
-
-## Installing
-
-Installing this package requires WP-CLI v0.23.0 or greater. Update to the latest stable release with `wp cli update`.
-
-Once you've done so, you can install this package with `wp package install ernilambar/devtools`.
 
 ## Contributing
 
