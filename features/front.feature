@@ -43,10 +43,10 @@ Feature: Test Front Page Settings.
     And I run `wp option get page_on_front`
     Then STDOUT should be:
       """
-      3
+      4
       """
     And I run `wp option get page_for_posts`
     Then STDOUT should be:
       """
-      4
+      5
       """
