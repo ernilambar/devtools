@@ -3,6 +3,10 @@ Feature: Test Front Page Settings.
   Background:
     Given a WP install
 
+    When I run `wp theme install twentytwelve --activate`
+    Then STDOUT should not be empty
+
+
   Scenario: Post as Front Page Settings
     When I run `wp dt front post`
     Then STDOUT should be:

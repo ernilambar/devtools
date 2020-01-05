@@ -3,7 +3,7 @@ Feature: Test Image commands.
   Scenario: Image info
     Given a WP install
 
-    When I run `wp theme install p2 --activate`
+    When I run `wp theme install twentytwelve --activate`
     Then STDOUT should not be empty
 
     When I run `wp dt image info --format=csv`
