@@ -1,14 +1,26 @@
 {
-    "name": "ernilambar/devtools",
-    "description": "",
-    "license": "MIT",
-    "authors": [],
-    "minimum-stability": "dev",
-    "autoload": {
-        "files": [ "command.php" ]
-    },
-    "require": {},
-    "require-dev": {
-        "behat/behat": "~2.5"
+  "name": "ernilambar/devtools",
+  "description": "Helper tools which are commenly used in WordPress development.",
+  "type": "wp-cli-package",
+  "keywords": ["wordpress"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Nilambar Sharma",
+      "email": "nilambar@outlook.com",
+      "homepage": "https://www.nilambar.net/"
     }
+  ],
+  "homepage": "https://github.com/ernilambar/devtools",
+  "support": {
+    "issues": "https://github.com/ernilambar/devtools/issues"
+  },
+  "minimum-stability": "dev",
+  "autoload": {
+    "files": [ "command.php" ]
+  },
+  "require": {},
+  "require-dev": {
+    "behat/behat": "~2.5"
+  }
 }
