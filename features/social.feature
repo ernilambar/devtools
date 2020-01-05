@@ -18,9 +18,9 @@ Feature: Test Social command.
     When I run `wp menu item list my-social-menu --format=csv`
     Then STDOUT should contain:
       """
-      3,custom,Facebook,http://facebook.com/example,1
-      4,custom,Twitter,http://twitter.com/example,2
-      5,custom,Youtube,http://youtube.com/example,3
-      6,custom,Linkedin,http://linkedin.com/example,4
-      7,custom,Google,http://plus.google.com/example,5
+      4,custom,Facebook,http://facebook.com/example,1
+      5,custom,Twitter,http://twitter.com/example,2
+      6,custom,Youtube,http://youtube.com/example,3
+      7,custom,Linkedin,http://linkedin.com/example,4
+      8,custom,Google,http://plus.google.com/example,5
       """

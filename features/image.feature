@@ -7,7 +7,7 @@ Feature: Test Image commands.
     Then STDOUT should not be empty
 
     When I run `wp dt image info --format=csv`
-    Then STDOUT should be:
+    Then STDOUT should contain:
       """
       id,width,height,crop
       thumbnail,150,150,1
