@@ -52,7 +52,7 @@ Feature: Test Widget commands.
     When I run `wp widget list sidebar-1 --format=json`
     Then STDOUT should be:
       """
-      [{"name":"text","id":"text-1","position":1,"options":{"title":"Sidebar: sidebar-1","text":"This is 'sidebar-1' sidebar.","filter":false}}]
+      [{"name":"text","id":"text-1","position":1,"options":{"title":"Sidebar: sidebar-1","text":"<p>This is 'sidebar-1' sidebar.<\/p>","filter":false}}]
       """
 
     When I run `wp dt widget test`
