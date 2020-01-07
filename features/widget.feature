@@ -71,6 +71,6 @@ Feature: Test Widget commands.
     Then STDOUT should be:
       """
       name,id,position,options
-      text,text-2,1,"{""title"":""Sidebar: sidebar-1"",""text"":""This is 'sidebar-1' sidebar."",""filter"":false}"
-      text,text-1,2,"{""title"":""Sidebar: sidebar-1"",""text"":""This is 'sidebar-1' sidebar."",""filter"":false}"
+      text,text-2,1,"{""title"":""Sidebar: sidebar-1"",""text"":""<p>This is 'sidebar-1' sidebar.<\/p>"",""filter"":false}"
+      text,text-1,2,"{""title"":""Sidebar: sidebar-1"",""text"":""<p>This is 'sidebar-1' sidebar.<\/p>"",""filter"":false}"
       """
