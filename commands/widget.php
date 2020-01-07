@@ -245,7 +245,7 @@ class Devtools_Widget_Command {
 
 		foreach ( $sidebars as $key => $value ) {
 			$widget_title = 'Sidebar: ' . $key;
-			$widget_description = sprintf( "This is '%s' sidebar.", $key );
+			$widget_description = sprintf( "<p>This is '%s' sidebar.</p>", $key );
 			$response = WP_CLI::launch_self( 'widget add', array( 'text', $key ), array( 'title' => $widget_title, 'text' => $widget_description ), false, true );
 		}
 
