@@ -1,11 +1,14 @@
-ernilambar/devtools
-===================
+# ernilambar/devtools
 
-Quick links: [Installing](#installing) | [Using](#using) | [Contributing](#contributing)
+WP-CLI command line tools useful for WordPress development.
+
+Quick links: [Installing](#installing) | [Commands](#commands) | [Using](#using) | [Contributing](#contributing)
 
 ## Installing
 
-Installing this package requires WP-CLI v0.23.0 or greater. Update to the latest stable release with `wp cli update`.
+If you have not installed WP CLI yet, please follow [WP CLI Installation](https://make.wordpress.org/cli/handbook/guides/installing/) first.
+
+Installing this package requires WP-CLI v2.0.0 or greater. Update to the latest stable release with `wp cli update`.
 
 Once you've done so, you can install this package with following command.
 
@@ -13,33 +16,45 @@ Once you've done so, you can install this package with following command.
 wp package install https://gitlab.com/ernilambar/devtools.git
 ```
 
+If you are facing memory issue, please try following command.
+
+```
+php -d memory_limit=4000M "$(which wp)" package install https://github.com/ernilambar/devtools.git
+```
+
+## Commands
+
+* [wp dt admin](#wp-dt-admin)
+* [wp dt customize](#wp-dt-customize)
+* [wp dt front](#wp-dt-front)
+* [wp dt home](#wp-dt-home)
+* [wp dt image](#wp-dt-image)
+* [wp dt reset-theme-mod](#wp-dt-reset-theme-mod)
+* [wp dt social](#wp-dt-social)
+* [wp dt widget](#wp-dt-widget)
+
 ## Using
 This package implements the following commands:
 
-### wp dt social
-Create social menu.
+### wp dt admin
+Open WordPress admin panel in the browser.
 
 ~~~
-wp dt social <menu-name>
+wp dt admin
 ~~~
 
-**OPTIONS**
-
-	<menu-name>
-		A descriptive name for the menu.
-
-	[--count=<number>]
-		How many social icons? Default: 5
-
-	[--porcelain]
-		Output just the new menu id.
-
-**EXAMPLES**
+### wp dt customize
+Open WordPress Customizer in the browser.
 
 ~~~
-# Create social menu.
-$ wp dt social "My Social Menu"
-Success: Social menu created successfully.
+wp dt customize
+~~~
+
+### wp dt front
+Open WordPress front-end in the browser.
+
+~~~
+wp dt front
 ~~~
 
 ### wp dt home
@@ -51,8 +66,10 @@ wp dt home <mode>
 
 **OPTIONS**
 
-	<mode>
-		Front page mode; `page` or `post`.
+~~~
+<mode>
+  Front page mode; `page` or `post`.
+~~~
 
 **EXAMPLES**
 
@@ -88,8 +105,45 @@ $ wp dt image info
 +----------------+-------+--------+------+
 ~~~
 
+### wp dt reset-theme-mod
+Reset theme mod of currently active theme.
+
+~~~
+wp dt reset-theme-mod
+~~~
+
+### wp dt social
+Create social menu.
+
+~~~
+wp dt social <menu-name>
+~~~
+
+**OPTIONS**
+
+~~~
+<menu-name>
+  A descriptive name for the menu.
+
+[--count=<number>]
+  How many social icons? Default: 5
+
+[--porcelain]
+  Output just the new menu id.
+~~~
+
+**EXAMPLES**
+
+~~~
+# Create social menu.
+$ wp dt social "My Social Menu"
+Success: Social menu created successfully.
+~~~
+
 ### wp dt widget
-Widget tools
+Widget tools.
+
+#### wp dt widget duplicate
 
 ~~~
 wp dt widget duplicate
@@ -99,8 +153,10 @@ Duplicate given widget instance and place it just after the widget in the sideba
 
 **OPTIONS**
 
-	<widget-id>
-		Widget ID to duplicate.
+~~~
+<widget-id>
+  Widget ID to duplicate.
+~~~
 
 **EXAMPLES**
 
@@ -109,6 +165,8 @@ Duplicate given widget instance and place it just after the widget in the sideba
 $ wp dt widget duplicate text-2
 Success: Widget duplicated to 'text-3'.
 ~~~
+
+#### wp dt widget test
 
 ~~~
 wp dt widget test
@@ -122,27 +180,6 @@ Add test widgets to every sidebar.
 # Add test widgets in each sidebar.
 $ wp dt widget test
 Success: Test widgets added successfully.
-~~~
-
-### wp dt admin
-Open WordPress admin panel in the browser.
-
-~~~
-wp dt admin
-~~~
-
-### wp dt front
-Open WordPress front-end in the browser.
-
-~~~
-wp dt front
-~~~
-
-### wp dt customize
-Open WordPress Customizer in the browser.
-
-~~~
-wp dt customize
 ~~~
 
 ## Contributing
