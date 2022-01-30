@@ -24,3 +24,6 @@ require_once 'commands/front.php';
 
 // Customize.
 require_once 'commands/customize.php';
+
+// Reset theme mod.
+require_once 'commands/reset-theme-mod.php';

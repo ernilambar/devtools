@@ -48,10 +48,10 @@ class Devtools_Image_Command {
 	 *     +----------------+-------+--------+------+
 	 *     | id             | width | height | crop |
 	 *     +----------------+-------+--------+------+
-	 *     | thumbnail      | 150   | 150    | 1    |
-	 *     | medium         | 300   | 300    |      |
-	 *     | large          | 1024  | 1024   |      |
-	 *     | post-thumbnail | 1200  | 9999   |      |
+	 *     | thumbnail      | 150   | 150    | hard |
+	 *     | medium         | 300   | 300    | soft |
+	 *     | large          | 1024  | 1024   | soft |
+	 *     | post-thumbnail | 1200  | 9999   | soft |
 	 *     +----------------+-------+--------+------+
 	 */
 	public function info( $args, $assoc_args ) {
