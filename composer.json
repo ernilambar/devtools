@@ -1,6 +1,7 @@
 {
   "name": "ernilambar/devtools",
   "description": "Helper tools which are commonly used in WordPress development.",
+  "version" : "1.0.1",
   "type": "wp-cli-package",
   "keywords": ["wordpress"],
   "license": "MIT",
