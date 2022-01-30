@@ -1,8 +1,6 @@
 ernilambar/devtools
 ===================
 
-[![Build Status](https://travis-ci.org/ernilambar/devtools.svg?branch=master)](https://travis-ci.org/ernilambar/devtools)
-
 Quick links: [Installing](#installing) | [Using](#using) | [Contributing](#contributing)
 
 ## Installing
@@ -12,7 +10,7 @@ Installing this package requires WP-CLI v0.23.0 or greater. Update to the latest
 Once you've done so, you can install this package with following command.
 
 ```bash
-wp package install git@github.com:ernilambar/devtools.git
+wp package install https://gitlab.com/ernilambar/devtools.git
 ```
 
 ## Using
@@ -44,7 +42,7 @@ $ wp dt social "My Social Menu"
 Success: Social menu created successfully.
 ~~~
 
-### wp dt front
+### wp dt home
 Manage Front Page Settings.
 
 ~~~
@@ -83,10 +81,10 @@ $ wp dt image info
 +----------------+-------+--------+------+
 | id             | width | height | crop |
 +----------------+-------+--------+------+
-| thumbnail      | 150   | 150    | 1    |
-| medium         | 300   | 300    |      |
-| large          | 1024  | 1024   |      |
-| post-thumbnail | 1200  | 9999   |      |
+| thumbnail      | 150   | 150    | hard |
+| medium         | 300   | 300    | soft |
+| large          | 1024  | 1024   | soft |
+| post-thumbnail | 1200  | 9999   | soft |
 +----------------+-------+--------+------+
 ~~~
 
@@ -126,32 +124,27 @@ $ wp dt widget test
 Success: Test widgets added successfully.
 ~~~
 
-### wp dt wpbeta
-Manage Beta Tester Mode. Requires `WordPress Beta Tester` plugin.
+### wp dt admin
+Open WordPress admin panel in the browser.
 
 ~~~
-wp dt wpbeta <mode>
+wp dt admin
 ~~~
 
-**OPTIONS**
-
-	<mode>
-		Beta mode; `bleeding` or `point`.
-
-**EXAMPLES**
+### wp dt front
+Open WordPress front-end in the browser.
 
 ~~~
-# Set mode to bleeding edge.
-$ wp dt wpbeta bleeding
-Success: Mode set to 'Bleeding edge nightlies'.
+wp dt front
+~~~
 
-# Set mode to point release.
-$ wp dt wpbeta point
-Success: Mode set to 'Point release nightlies'.
+### wp dt customize
+Open WordPress Customizer in the browser.
+
+~~~
+wp dt customize
 ~~~
 
 ## Contributing
 
-Code and ideas are more than welcome.
-
-Please [open an issue](https://github.com/ernilambar/devtools/issues) with questions, feedback, and violent dissent. Pull requests are expected to include test coverage.
+Code and ideas are more than welcome. Please [open an issue](https://github.com/ernilambar/devtools/issues).
