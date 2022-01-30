@@ -55,50 +55,47 @@ class Devtools_Image_Command {
 	 *     +----------------+-------+--------+------+
 	 */
 	public function info( $args, $assoc_args ) {
-
 		$image_info_detail = $this->get_image_info_detail();
 
 		if ( ! empty( $assoc_args['format'] ) && 'ids' === $assoc_args['format'] ) {
 			$image_info = wp_list_pluck( $image_info_detail, 'id' );
-		}
-		else {
+		} else {
 			$image_info = $image_info_detail;
 		}
 
 		$formatter = new \WP_CLI\Formatter( $assoc_args, $this->fields );
 		$formatter->display_items( $image_info );
-
 	}
 
 	private function get_image_info_detail() {
-
 		$output = array();
-		global $_wp_additional_image_sizes;
 
-		foreach ( array( 'thumbnail', 'medium', 'large' ) as $key => $size ) {
+		foreach ( array( 'thumbnail', 'medium', 'medium_large', 'large' ) as $key => $size ) {
 			$item           = array();
 			$item['id']     = $size;
 			$item['width']  = get_option( $size . '_size_w' );
 			$item['height'] = get_option( $size . '_size_h' );
-			$item['crop']   = get_option( $size . '_crop' );
+			$crop           = get_option( "{$size}_crop" );
+			$item['crop']   = false !== $crop ? 'hard' : 'soft';
 			$output[ $key ] = $item;
 		}
 
-		if ( ! empty( $_wp_additional_image_sizes ) ) {
-			foreach ($_wp_additional_image_sizes as $key => $val ) {
+		$additional_sizes = wp_get_additional_image_sizes();
+
+		if ( ! empty( $additional_sizes ) ) {
+			foreach ( $additional_sizes as $key => $val ) {
+				$crop           = filter_var( $val['crop'], FILTER_VALIDATE_BOOLEAN );
 				$item           = array();
 				$item['id']     = $key;
 				$item['width']  = $val['width'];
 				$item['height'] = $val['height'];
-				$item['crop']   = $val['crop'];
+				$item['crop']   = empty( $crop ) || is_array( $val['crop'] ) ? 'soft' : 'hard';
 				$output[ $key ] = $item;
 			}
 		}
 
 		return $output;
-
 	}
-
 }
 
 WP_CLI::add_command( 'dt image', 'Devtools_Image_Command' );

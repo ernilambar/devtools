@@ -19,7 +19,6 @@ class Devtools_Widget_Command {
 	 *     Success: Widget duplicated to 'text-3'.
 	 */
 	public function duplicate( $args, $assoc_args ) {
-
 		$widget_id = $args[0];
 
 		$this->validate_sidebar_widget( $widget_id );
@@ -32,8 +31,8 @@ class Devtools_Widget_Command {
 			$widget_options['_multiwidget'] = 1;
 		}
 		unset( $option_keys['_multiwidget'] );
-		$option_keys = array_keys( $option_keys );
-		$last_key = array_pop( $option_keys );
+		$option_keys  = array_keys( $option_keys );
+		$last_key     = array_pop( $option_keys );
 		$option_index = $last_key + 1;
 
 		$widget_options[ $option_index ] = $this->sanitize_widget_options( $name, $source_options, array() );
@@ -44,20 +43,19 @@ class Devtools_Widget_Command {
 		$this->move_sidebar_widget( $widget_id, null, $sidebar_id, null, $sidebar_index + 1 );
 
 		WP_CLI::success( sprintf( "Widget duplicated to '%s'.", $widget_id ) );
-
 	}
 
 	/**
 	 * Clean up a widget's options based on its update callback
 	 *
 	 * @param string $id_base Name of the widget
-	 * @param mixed $dirty_options
-	 * @param mixed $old_options
+	 * @param mixed  $dirty_options
+	 * @param mixed  $old_options
 	 * @return mixed
 	 */
 	private function sanitize_widget_options( $id_base, $dirty_options, $old_options ) {
-
 		$widget = $this->get_widget_obj( $id_base );
+
 		if ( empty( $widget ) ) {
 			return array();
 		}
@@ -65,7 +63,6 @@ class Devtools_Widget_Command {
 		// No easy way to determine expected array keys for $dirty_options
 		// because Widget API dependent on the form fields
 		return @$widget->update( $dirty_options, $old_options );
-
 	}
 
 
@@ -99,6 +96,7 @@ class Devtools_Widget_Command {
 		global $wp_widget_factory;
 
 		$widget = wp_filter_object_list( $wp_widget_factory->widgets, array( 'id_base' => $id_base ) );
+
 		if ( empty( $widget ) ) {
 			false;
 		}
@@ -109,17 +107,17 @@ class Devtools_Widget_Command {
 	/**
 	 * Reposition a widget within a sidebar or move to another sidebar.
 	 *
-	 * @param string $widget_id
+	 * @param string      $widget_id
 	 * @param string|null $current_sidebar_id
-	 * @param string $new_sidebar_id
-	 * @param int|null $current_index
-	 * @param int $new_index
+	 * @param string      $new_sidebar_id
+	 * @param int|null    $current_index
+	 * @param int         $new_index
 	 */
 	private function move_sidebar_widget( $widget_id, $current_sidebar_id, $new_sidebar_id, $current_index, $new_index ) {
-
 		$all_widgets = $this->wp_get_sidebars_widgets();
+
 		$needs_placement = true;
-		// Existing widget
+		// Existing widget.
 		if ( $current_sidebar_id && ! is_null( $current_index ) ) {
 
 			$widgets = $all_widgets[ $current_sidebar_id ];
@@ -137,21 +135,19 @@ class Devtools_Widget_Command {
 			}
 
 			$all_widgets[ $current_sidebar_id ] = array_values( $widgets );
-
 		}
 
 		if ( $needs_placement ) {
 			$widgets = ! empty( $all_widgets[ $new_sidebar_id ] ) ? $all_widgets[ $new_sidebar_id ] : array();
-			$before = array_slice( $widgets, 0, $new_index, true );
-			$after = array_slice( $widgets, $new_index, count( $widgets ), true );
+			$before  = array_slice( $widgets, 0, $new_index, true );
+			$after   = array_slice( $widgets, $new_index, count( $widgets ), true );
 			$widgets = array_merge( $before, array( $widget_id ), $after );
+
 			$all_widgets[ $new_sidebar_id ] = array_values( $widgets );
 		}
 
 		update_option( 'sidebars_widgets', $all_widgets );
-
 	}
-
 
 	/**
 	 * Check whether the specified widget is on the sidebar.
@@ -159,23 +155,21 @@ class Devtools_Widget_Command {
 	 * @param string $widget_id
 	 */
 	private function validate_sidebar_widget( $widget_id ) {
-
 		$sidebars_widgets = $this->wp_get_sidebars_widgets();
 
 		$widget_exists = false;
-		foreach( $sidebars_widgets as $sidebar_id => $widgets ) {
+
+		foreach ( $sidebars_widgets as $sidebar_id => $widgets ) {
 
 			if ( in_array( $widget_id, $widgets ) ) {
 				$widget_exists = true;
 				break;
 			}
-
 		}
 
 		if ( false === $widget_exists ) {
 			WP_CLI::error( sprintf( "Invalid widget '%s'.", $widget_id ) );
 		}
-
 	}
 
 	/**
@@ -199,27 +193,25 @@ class Devtools_Widget_Command {
 	 * @return array
 	 */
 	private function get_widget_data( $widget_id ) {
-
-		$parts = explode( '-', $widget_id );
+		$parts        = explode( '-', $widget_id );
 		$option_index = array_pop( $parts );
-		$name = implode( '-', $parts );
+		$name         = implode( '-', $parts );
 
-		$sidebar_id = false;
+		$sidebar_id    = false;
 		$sidebar_index = false;
-		$all_widgets = $this->wp_get_sidebars_widgets();
-		foreach( $all_widgets as $s_id => &$widgets ) {
 
+		$all_widgets = $this->wp_get_sidebars_widgets();
+
+		foreach ( $all_widgets as $s_id => &$widgets ) {
 			if ( false !== ( $key = array_search( $widget_id, $widgets ) ) ) {
-				$sidebar_id = $s_id;
+				$sidebar_id    = $s_id;
 				$sidebar_index = $key;
 				break;
 			}
-
 		}
 
 		return array( $name, $option_index, $sidebar_id, $sidebar_index );
 	}
-
 
 	/**
 	 * Add test widgets.
@@ -231,10 +223,10 @@ class Devtools_Widget_Command {
 	 *     Success: Test widgets added successfully.
 	 */
 	public function test( $args, $assoc_args ) {
-
 		global $wp_registered_sidebars;
 
 		$sidebars = $wp_registered_sidebars;
+
 		if ( isset( $sidebars['wp_inactive_widgets'] ) ) {
 			unset( $sidebars['wp_inactive_widgets'] );
 		}
@@ -244,9 +236,19 @@ class Devtools_Widget_Command {
 		}
 
 		foreach ( $sidebars as $key => $value ) {
-			$widget_title = 'Sidebar: ' . $key;
+			$widget_title       = 'Sidebar: ' . $key;
 			$widget_description = sprintf( "<p>This is '%s' sidebar.</p>", $key );
-			$response = WP_CLI::launch_self( 'widget add', array( 'text', $key ), array( 'title' => $widget_title, 'text' => $widget_description ), false, true );
+
+			$response = WP_CLI::launch_self(
+				'widget add',
+				array( 'text', $key ),
+				array(
+					'title' => $widget_title,
+					'text'  => $widget_description,
+				),
+				false,
+				true
+			);
 		}
 
 		WP_CLI::success( 'Test widgets added successfully.' );

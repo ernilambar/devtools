@@ -1,6 +1,6 @@
 {
   "name": "ernilambar/devtools",
-  "description": "Helper tools which are commenly used in WordPress development.",
+  "description": "Helper tools which are commonly used in WordPress development.",
   "type": "wp-cli-package",
   "keywords": ["wordpress"],
   "license": "MIT",
@@ -11,16 +11,9 @@
       "homepage": "https://www.nilambar.net/"
     }
   ],
-  "homepage": "https://github.com/ernilambar/devtools",
-  "support": {
-    "issues": "https://github.com/ernilambar/devtools/issues"
-  },
   "minimum-stability": "dev",
   "autoload": {
     "files": [ "command.php" ]
   },
-  "require": {},
-  "require-dev": {
-    "behat/behat": "~2.5"
-  }
+  "require": {}
 }

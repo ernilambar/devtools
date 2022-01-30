@@ -48,7 +48,7 @@ Success: Social menu created successfully.
 Manage Front Page Settings.
 
 ~~~
-wp dt front <mode>
+wp dt home <mode>
 ~~~
 
 **OPTIONS**
@@ -60,11 +60,11 @@ wp dt front <mode>
 
 ~~~
 # Set front page display to static page.
-$ wp dt front page
+$ wp dt home page
 Success: Front page displays set to Static Page.
 
 # Set front page display to latest posts.
-$ wp dt front post
+$ wp dt home post
 Success: Front page displays set to Latest Posts.
 ~~~
 

@@ -5,9 +5,9 @@ if ( ! class_exists( 'WP_CLI' ) ) {
 }
 
 /**
- * Open WordPress site in a browser.
+ * Open Customizer in a browser.
  */
-$wp_front = function() {
+$wp_customize = function() {
 	switch ( strtoupper( substr( PHP_OS, 0, 3 ) ) ) {
 		case 'DAR':
 			$exec = 'open';
@@ -19,7 +19,7 @@ $wp_front = function() {
 			$exec = 'xdg-open';
 	}
 
-	passthru( $exec . ' ' . escapeshellarg( home_url() ) );
+	passthru( $exec . ' ' . escapeshellarg( admin_url( '/customize.php' ) ) );
 };
 
-WP_CLI::add_command( 'dt front', $wp_front );
+WP_CLI::add_command( 'dt customize', $wp_customize );
