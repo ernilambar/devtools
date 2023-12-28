@@ -1,20 +1,65 @@
 {
   "name": "ernilambar/devtools",
   "description": "Helper tools which are commonly used in WordPress development.",
-  "version" : "1.0.1",
+  "version" : "2.0.0",
   "type": "wp-cli-package",
-  "keywords": ["wordpress"],
+  "keywords": ["wp-cli"],
   "license": "MIT",
   "authors": [
-    {
-      "name": "Nilambar Sharma",
-      "email": "nilambar@outlook.com",
-      "homepage": "https://www.nilambar.net/"
-    }
-  ],
+		{
+			"name": "Nilambar Sharma",
+			"email": "nilambar@outlook.com",
+			"homepage": "https://www.nilambar.net",
+			"role": "Developer"
+		}
+	],
   "minimum-stability": "dev",
+  "prefer-stable": true,
+	"config": {
+    "process-timeout": 7200,
+    "sort-packages": true,
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
+	},
   "autoload": {
     "files": [ "command.php" ]
   },
-  "require": {}
+	"require": {
+		"wp-cli/wp-cli": "^2.0"
+	},
+  "require-dev": {
+    "wp-cli/scaffold-package-command": "^2",
+    "wp-cli/wp-cli-tests": "^4"
+  },
+  "extra": {
+		"commands": [
+			"dt admin",
+			"dt customize",
+			"dt front",
+			"dt home",
+			"dt social"
+		],
+    "readme": {
+      "sections": [
+        "Using",
+        "Installing"
+      ]
+    }
+	},
+	"scripts": {
+    "behat": "run-behat-tests",
+    "behat-rerun": "rerun-behat-tests",
+    "lint": "run-linter-tests",
+    "phpcs": "run-phpcs-tests",
+    "phpcbf": "run-phpcbf-cleanup",
+    "phpunit": "run-php-unit-tests",
+    "prepare-tests": "install-package-tests",
+    "test": [
+        "@lint",
+        "@phpcs",
+        "@phpunit",
+        "@behat"
+      ]
+  }
 }
