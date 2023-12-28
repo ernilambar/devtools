@@ -1,8 +1,11 @@
 <?php
-/**
- * Manage Front Page Settings.
- */
-class Devtools_Social_Command {
+namespace Nilambar\Devtools;
+
+use WP_CLI;
+use WP_CLI_Command;
+use Exception;
+
+class Social_Command extends WP_CLI_Command {
 
 	protected $arr = array(
 		array(
@@ -175,5 +178,3 @@ class Devtools_Social_Command {
 		return $menu_id;
 	}
 }
-
-WP_CLI::add_command( 'dt social', 'Devtools_Social_Command' );

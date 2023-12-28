@@ -23,8 +23,13 @@
 		}
 	},
   "autoload": {
-    "files": [ "command.php" ]
-  },
+    "classmap": [
+			"src/"
+		],
+		"files": [
+			"command.php"
+		]
+	},
 	"require": {
 		"wp-cli/wp-cli": "^2.0"
 	},
@@ -34,10 +39,8 @@
   },
   "extra": {
 		"commands": [
-			"dt admin",
-			"dt customize",
-			"dt front",
 			"dt home",
+			"dt open",
 			"dt social"
 		],
     "readme": {

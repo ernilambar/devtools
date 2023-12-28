@@ -1,8 +1,13 @@
 <?php
+namespace Nilambar\Devtools;
+
+use WP_CLI;
+use WP_CLI_Command;
+
 /**
  * Manage Front Page Settings.
  */
-class Devtools_Home_Command {
+class Home_Command extends WP_CLI_Command {
 
 	protected $modes = array(
 		'page' => 'Static Page',
@@ -154,5 +159,3 @@ class Devtools_Home_Command {
 		WP_CLI::success( sprintf( $success_message, $this->modes['page'] ) );
 	}
 }
-
-WP_CLI::add_command( 'dt home', 'Devtools_Home_Command' );
