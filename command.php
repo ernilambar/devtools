@@ -1,20 +1,19 @@
 <?php
 
-if ( ! class_exists( 'WP_CLI' ) ) {
+namespace Nilambar\Devtools;
+
+use WP_CLI;
+
+if ( ! class_exists( '\WP_CLI' ) ) {
 	return;
 }
 
-// Front page settings.
-require_once 'commands/home.php';
+$devtools_autoloader = __DIR__ . '/vendor/autoload.php';
 
-// Social.
-require_once 'commands/social.php';
+if ( file_exists( $devtools_autoloader ) ) {
+	require_once $devtools_autoloader;
+}
 
-// Admin.
-require_once 'commands/admin.php';
-
-// Front.
-require_once 'commands/front.php';
-
-// Customize.
-require_once 'commands/customize.php';
+WP_CLI::add_command( 'dt home', Home_Command::class );
+WP_CLI::add_command( 'dt open', Open_Command::class );
+WP_CLI::add_command( 'dt social', Social_Command::class );
