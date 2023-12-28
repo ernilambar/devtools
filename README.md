@@ -1,64 +1,55 @@
-# ernilambar/devtools
+ernilambar/devtools
+===================
 
-WP-CLI command line tools useful for WordPress development.
+Helper tools which are commonly used in WordPress development.
 
-Quick links: [Installing](#installing) | [Commands](#commands) | [Using](#using) | [Contributing](#contributing)
 
-## Installing
 
-If you have not installed WP CLI yet, please follow [WP CLI Installation](https://make.wordpress.org/cli/handbook/guides/installing/) first.
-
-Installing this package requires WP-CLI v2.0.0 or greater. Update to the latest stable release with `wp cli update`.
-
-Once you've done so, you can install this package with following command.
-
-```bash
-wp package install https://gitlab.com/ernilambar/devtools.git
-```
-
-If you are facing memory issue, please try following command.
-
-```
-php -d memory_limit=4000M "$(which wp)" package install https://github.com/ernilambar/devtools.git
-```
-
-## Commands
-
-* [wp dt admin](#wp-dt-admin)
-* [wp dt customize](#wp-dt-customize)
-* [wp dt front](#wp-dt-front)
-* [wp dt home](#wp-dt-home)
-* [wp dt image](#wp-dt-image)
-* [wp dt reset-theme-mod](#wp-dt-reset-theme-mod)
-* [wp dt social](#wp-dt-social)
-* [wp dt widget](#wp-dt-widget)
+Quick links: [Using](#using) | [Installing](#installing)
 
 ## Using
+
 This package implements the following commands:
 
 ### wp dt admin
-Open WordPress admin panel in the browser.
+
+Open /wp-admin/ in a browser.
 
 ~~~
-wp dt admin
+wp dt admin 
 ~~~
+
+
+
+
 
 ### wp dt customize
-Open WordPress Customizer in the browser.
+
+Open Customizer in a browser.
 
 ~~~
-wp dt customize
+wp dt customize 
 ~~~
+
+
+
+
 
 ### wp dt front
-Open WordPress front-end in the browser.
+
+Open WordPress site in a browser.
 
 ~~~
-wp dt front
+wp dt front 
 ~~~
+
+
+
+
 
 ### wp dt home
-Manage Front Page Settings.
+
+Front page settings.
 
 ~~~
 wp dt home <mode>
@@ -66,122 +57,64 @@ wp dt home <mode>
 
 **OPTIONS**
 
-~~~
-<mode>
-  Front page mode; `page` or `post`.
-~~~
+	<mode>
+		Front page mode; `page` or `post`.
 
 **EXAMPLES**
 
-~~~
-# Set front page display to static page.
-$ wp dt home page
-Success: Front page displays set to Static Page.
+    # Set front page display to latest posts.
+    $ wp dt home post
+    Success: Front page displays set to Latest Posts.
 
-# Set front page display to latest posts.
-$ wp dt home post
-Success: Front page displays set to Latest Posts.
-~~~
+    # Set front page display to static page.
+    $ wp dt home page
+    Success: Front page displays set to Static Page.
 
-### wp dt image
-Display Image Info.
 
-~~~
-wp dt image info
-~~~
-
-**EXAMPLES**
-
-~~~
-# List registered image sizes.
-$ wp dt image info
-+----------------+-------+--------+------+
-| id             | width | height | crop |
-+----------------+-------+--------+------+
-| thumbnail      | 150   | 150    | hard |
-| medium         | 300   | 300    | soft |
-| large          | 1024  | 1024   | soft |
-| post-thumbnail | 1200  | 9999   | soft |
-+----------------+-------+--------+------+
-~~~
-
-### wp dt reset-theme-mod
-Reset theme mod of currently active theme.
-
-~~~
-wp dt reset-theme-mod
-~~~
 
 ### wp dt social
-Create social menu.
+
+Create a new social menu.
 
 ~~~
-wp dt social <menu-name>
+wp dt social <menu-name> [--count=<number>] [--porcelain]
 ~~~
 
 **OPTIONS**
 
-~~~
-<menu-name>
-  A descriptive name for the menu.
+	<menu-name>
+		A descriptive name for the menu.
 
-[--count=<number>]
-  How many social icons? Default: 5
+	[--count=<number>]
+		How many social icons?
+		---
+		default: 5
+		---
 
-[--porcelain]
-  Output just the new menu id.
-~~~
-
-**EXAMPLES**
-
-~~~
-# Create social menu.
-$ wp dt social "My Social Menu"
-Success: Social menu created successfully.
-~~~
-
-### wp dt widget
-Widget tools.
-
-#### wp dt widget duplicate
-
-~~~
-wp dt widget duplicate
-~~~
-
-Duplicate given widget instance and place it just after the widget in the sidebar.
-
-**OPTIONS**
-
-~~~
-<widget-id>
-  Widget ID to duplicate.
-~~~
+	[--porcelain]
+		Output just the new menu id.
 
 **EXAMPLES**
 
-~~~
-# Duplicate text widget.
-$ wp dt widget duplicate text-2
-Success: Widget duplicated to 'text-3'.
-~~~
+    # Create social menu.
+    $ wp dt social "My Social Menu"
+    Success: Social menu created successfully.
 
-#### wp dt widget test
+## Installing
 
-~~~
-wp dt widget test
-~~~
+Installing this package requires WP-CLI v2.0 or greater. Update to the latest stable release with `wp cli update`.
 
-Add test widgets to every sidebar.
+Once you've done so, you can install the latest stable version of this package with:
 
-**EXAMPLES**
+```bash
+wp package install ernilambar/devtools:@stable
+```
 
-~~~
-# Add test widgets in each sidebar.
-$ wp dt widget test
-Success: Test widgets added successfully.
-~~~
+To install the latest development version of this package, use the following command instead:
 
-## Contributing
+```bash
+wp package install ernilambar/devtools:dev-master
+```
 
-Code and ideas are more than welcome. Please [open an issue](https://github.com/ernilambar/devtools/issues).
+
+*This README.md is generated dynamically from the project's codebase using `wp scaffold package-readme` ([doc](https://github.com/wp-cli/scaffold-package-command#wp-scaffold-package-readme)). To suggest changes, please submit a pull request against the corresponding part of the codebase.*
