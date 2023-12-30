@@ -31,6 +31,9 @@ class Home_Command extends WP_CLI_Command {
 	 *     # Set front page display to static page.
 	 *     $ wp dt home page
 	 *     Success: Front page displays set to Static Page.
+	 *
+	 * @subcommand home
+	 *
 	 */
 	public function __invoke( $args, $assoc_args ) {
 		$mode = $args[0];

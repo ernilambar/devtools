@@ -11,42 +11,6 @@ Quick links: [Using](#using) | [Installing](#installing)
 
 This package implements the following commands:
 
-### wp dt admin
-
-Open /wp-admin/ in a browser.
-
-~~~
-wp dt admin 
-~~~
-
-
-
-
-
-### wp dt customize
-
-Open Customizer in a browser.
-
-~~~
-wp dt customize 
-~~~
-
-
-
-
-
-### wp dt front
-
-Open WordPress site in a browser.
-
-~~~
-wp dt front 
-~~~
-
-
-
-
-
 ### wp dt home
 
 Front page settings.
@@ -69,6 +33,29 @@ wp dt home <mode>
     # Set front page display to static page.
     $ wp dt home page
     Success: Front page displays set to Static Page.
+
+
+
+### wp dt open
+
+Open site URLs.
+
+~~~
+wp dt open <mode>
+~~~
+
+**OPTIONS**
+
+	<mode>
+		Mode `admin` or `front` or `customizer` or `editor`.
+
+**EXAMPLES**
+
+    # Open admin.
+    $ wp dt open admin
+
+    # Open frontend.
+    $ wp dt open front
 
 
 
