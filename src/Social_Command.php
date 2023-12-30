@@ -144,6 +144,9 @@ class Social_Command extends WP_CLI_Command {
 	 *     # Create social menu.
 	 *     $ wp dt social "My Social Menu"
 	 *     Success: Social menu created successfully.
+	 *
+	 * @subcommand social
+	 *
 	 */
 	public function __invoke( $args, $assoc_args ) {
 		$social_menu = $this->create_social_menu( $args[0], $assoc_args );

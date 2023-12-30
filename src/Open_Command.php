@@ -18,22 +18,23 @@ class Open_Command extends WP_CLI_Command {
 	);
 
 	/**
-	 * Front page settings.
+	 * Open site URLs.
 	 *
 	 * ## OPTIONS
 	 *
 	 * <mode>
-	 * : Front page mode; `page` or `post`.
+	 * : Mode `admin` or `front` or `customizer` or `editor`.
 	 *
 	 * ## EXAMPLES
 	 *
-	 *     # Set front page display to latest posts.
-	 *     $ wp dt home post
-	 *     Success: Front page displays set to Latest Posts.
+	 *     # Open admin.
+	 *     $ wp dt open admin
 	 *
-	 *     # Set front page display to static page.
-	 *     $ wp dt home page
-	 *     Success: Front page displays set to Static Page.
+	 *     # Open frontend.
+	 *     $ wp dt open front
+	 *
+	 * @subcommand open
+	 *
 	 */
 	public function __invoke( $args, $assoc_args ) {
 		$mode = $args[0];
