@@ -3,11 +3,10 @@ namespace Nilambar\Devtools;
 
 use WP_CLI;
 use WP_CLI_Command;
-use Exception;
 
 class Social_Command extends WP_CLI_Command {
 
-	protected $arr = array(
+	protected $socials = array(
 		array(
 			'menu-item-title' => 'Facebook',
 			'menu-item-url'   => 'http://facebook.com/example',
@@ -143,20 +142,19 @@ class Social_Command extends WP_CLI_Command {
 	 *
 	 *     # Create social menu.
 	 *     $ wp dt social "My Social Menu"
-	 *     Success: Social menu created successfully.
+	 *     Success: Created menu 202.
 	 *
 	 * @subcommand social
-	 *
 	 */
 	public function __invoke( $args, $assoc_args ) {
 		$social_menu = $this->create_social_menu( $args[0], $assoc_args );
 
 		if ( ! is_wp_error( $social_menu ) ) {
 
-			if ( \WP_CLI\Utils\get_flag_value( $assoc_args, 'porcelain' ) ) {
+			if ( WP_CLI\Utils\get_flag_value( $assoc_args, 'porcelain' ) ) {
 				WP_CLI::line( $social_menu );
 			} else {
-				WP_CLI::success( 'Social menu created successfully.' );
+				WP_CLI::success( sprintf( 'Created menu %d.', absint( $social_menu ) ) );
 			}
 		}
 	}
@@ -167,11 +165,11 @@ class Social_Command extends WP_CLI_Command {
 		if ( is_wp_error( $menu_id ) ) {
 			WP_CLI::error( $menu_id->get_error_message() );
 		} else {
-			$total = count( $this->arr );
+			$total = count( $this->socials );
 			$count = $assoc_args['count'];
 
 			for ( $i = 0; $i < $total; $i++ ) {
-				$response = WP_CLI::launch_self( 'menu item add-custom', array( $menu_id, $this->arr[ $i ]['menu-item-title'], $this->arr[ $i ]['menu-item-url'] ), array(), false, true );
+				$response = WP_CLI::launch_self( 'menu item add-custom', array( $menu_id, $this->socials[ $i ]['menu-item-title'], $this->socials[ $i ]['menu-item-url'] ), array(), false, true );
 				if ( $i === ( $count - 1 ) ) {
 					break;
 				}

@@ -22,7 +22,12 @@ wp dt home <mode>
 **OPTIONS**
 
 	<mode>
-		Front page mode; `page` or `post`.
+		Front page mode.
+		---
+		options:
+		  - page
+		  - post
+		---
 
 **EXAMPLES**
 
@@ -47,7 +52,14 @@ wp dt open <mode>
 **OPTIONS**
 
 	<mode>
-		Mode `admin` or `front` or `customizer` or `editor`.
+		Mode.
+		---
+		options:
+		  - admin
+		  - front
+		  - customizer
+		  - editor
+		---
 
 **EXAMPLES**
 
@@ -85,7 +97,7 @@ wp dt social <menu-name> [--count=<number>] [--porcelain]
 
     # Create social menu.
     $ wp dt social "My Social Menu"
-    Success: Social menu created successfully.
+    Success: Created menu 202.
 
 ## Installing
 
