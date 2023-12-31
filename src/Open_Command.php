@@ -23,7 +23,14 @@ class Open_Command extends WP_CLI_Command {
 	 * ## OPTIONS
 	 *
 	 * <mode>
-	 * : Mode `admin` or `front` or `customizer` or `editor`.
+	 * : Mode.
+	 * ---
+	 * options:
+	 *   - admin
+	 *   - front
+	 *   - customizer
+	 *   - editor
+	 * ---
 	 *
 	 * ## EXAMPLES
 	 *
@@ -34,17 +41,10 @@ class Open_Command extends WP_CLI_Command {
 	 *     $ wp dt open front
 	 *
 	 * @subcommand open
-	 *
 	 */
 	public function __invoke( $args, $assoc_args ) {
-		$mode = $args[0];
-
-		if ( ! in_array( $mode, $this->modes ) ) {
-			WP_CLI::error( 'Invalid mode.' );
-		}
-
 		try {
-			$status = $this->opener( $mode );
+			$status = $this->opener( $args[0] );
 			if ( false === $status ) {
 				WP_CLI::error( 'URL could not be opened.' );
 			} else {

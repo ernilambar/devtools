@@ -34,6 +34,7 @@
 		"wp-cli/wp-cli": "^2.0"
 	},
   "require-dev": {
+  	"wp-cli/entity-command": "^2.6",
     "wp-cli/scaffold-package-command": "^2",
     "wp-cli/wp-cli-tests": "^4"
   },

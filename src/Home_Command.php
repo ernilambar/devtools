@@ -20,7 +20,12 @@ class Home_Command extends WP_CLI_Command {
 	 * ## OPTIONS
 	 *
 	 * <mode>
-	 * : Front page mode; `page` or `post`.
+	 * : Front page mode.
+	 * ---
+	 * options:
+	 *   - page
+	 *   - post
+	 * ---
 	 *
 	 * ## EXAMPLES
 	 *
@@ -33,14 +38,9 @@ class Home_Command extends WP_CLI_Command {
 	 *     Success: Front page displays set to Static Page.
 	 *
 	 * @subcommand home
-	 *
 	 */
 	public function __invoke( $args, $assoc_args ) {
 		$mode = $args[0];
-
-		if ( ! in_array( $mode, array( 'page', 'post' ) ) ) {
-			WP_CLI::error( 'Invalid mode.' );
-		}
 
 		if ( 'page' === $mode ) {
 			$this->page_callback();
@@ -65,7 +65,7 @@ class Home_Command extends WP_CLI_Command {
 	/**
 	 * Set front page display to static page.
 	 */
-	public function page_callback() {
+	private function page_callback() {
 		$response = WP_CLI::launch_self( 'option set', array( 'show_on_front', 'page' ), array(), false, true );
 
 		// Check front page.
