@@ -6,11 +6,22 @@ Feature: Test home commands.
 		When I run `wp dt home post`
 		Then STDOUT should be:
 			"""
-			Success: Front page displays set to Latest Posts.
+			Success: Homepage displays set to Latest Posts.
 			"""
 
 		When I run `wp dt home page`
 		Then STDOUT should be:
 			"""
-			Success: Front page displays set to Static Page.
+			Success: Homepage displays set to Static Page.
+			"""
+
+    When I run `wp dt home page`
+		And I run `wp post list --post_type=page --fields=post_name --format=csv`
+		Then STDOUT should contain:
+			"""
+			blog
+			"""
+		And STDOUT should contain:
+			"""
+			front-page
 			"""
