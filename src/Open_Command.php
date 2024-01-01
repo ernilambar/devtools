@@ -78,7 +78,7 @@ class Open_Command extends WP_CLI_Command {
 	private function get_url( $mode ) {
 		$url = '';
 
-		switch ($mode) {
+		switch ( $mode ) {
 			case 'admin':
 				$url = admin_url();
 				break;
