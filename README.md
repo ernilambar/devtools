@@ -13,7 +13,7 @@ This package implements the following commands:
 
 ### wp dt home
 
-Front page settings.
+Homepage settings.
 
 ~~~
 wp dt home <mode>
@@ -22,7 +22,7 @@ wp dt home <mode>
 **OPTIONS**
 
 	<mode>
-		Front page mode.
+		Homepage mode.
 		---
 		options:
 		  - page
@@ -31,13 +31,13 @@ wp dt home <mode>
 
 **EXAMPLES**
 
-    # Set front page display to latest posts.
+    # Set homepage display to latest posts.
     $ wp dt home post
-    Success: Front page displays set to Latest Posts.
+    Success: Homepage displays set to Latest Posts.
 
-    # Set front page display to static page.
+    # Set homepage display to static page.
     $ wp dt home page
-    Success: Front page displays set to Static Page.
+    Success: Homepage displays set to Static Page.
 
 
 
