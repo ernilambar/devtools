@@ -16,3 +16,15 @@ Feature: Test social commands.
 			"""
 			{"name":"My Social Menu"}
 			"""
+
+		When I run `wp post list --post_type=nav_menu_item --post_status=publish --format=count`
+		Then STDOUT should be:
+			"""
+			5
+			"""
+
+		When I run `wp post list --post_type=nav_menu_item --post_status=publish --fields=post_name --format=csv`
+		Then STDOUT should contain:
+			"""
+			facebook
+			"""

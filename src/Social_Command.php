@@ -9,83 +9,83 @@ class Social_Command extends WP_CLI_Command {
 	protected $socials = array(
 		array(
 			'menu-item-title' => 'Facebook',
-			'menu-item-url'   => 'http://facebook.com/example',
+			'menu-item-url'   => 'https://facebook.com/example',
 		),
 		array(
 			'menu-item-title' => 'Twitter',
-			'menu-item-url'   => 'http://twitter.com/example',
+			'menu-item-url'   => 'https://twitter.com/example',
 		),
 		array(
 			'menu-item-title' => 'Youtube',
-			'menu-item-url'   => 'http://youtube.com/example',
+			'menu-item-url'   => 'https://youtube.com/example',
 		),
 		array(
 			'menu-item-title' => 'Linkedin',
-			'menu-item-url'   => 'http://linkedin.com/example',
+			'menu-item-url'   => 'https://linkedin.com/example',
 		),
 		array(
 			'menu-item-title' => 'Google',
-			'menu-item-url'   => 'http://plus.google.com/example',
+			'menu-item-url'   => 'https://plus.google.com/example',
 		),
 		array(
 			'menu-item-title' => 'Dribbble',
-			'menu-item-url'   => 'http://dribbble.com/example',
+			'menu-item-url'   => 'https://dribbble.com/example',
 		),
 		array(
 			'menu-item-title' => 'Pinterest',
-			'menu-item-url'   => 'http://pinterest.com/example',
+			'menu-item-url'   => 'https://pinterest.com/example',
 		),
 		array(
 			'menu-item-title' => 'Bitbucket',
-			'menu-item-url'   => 'http://bitbucket.org/example',
+			'menu-item-url'   => 'https://bitbucket.org/example',
 		),
 		array(
 			'menu-item-title' => 'github',
-			'menu-item-url'   => 'http://github.com/example',
+			'menu-item-url'   => 'https://github.com/example',
 		),
 		array(
 			'menu-item-title' => 'Codepen',
-			'menu-item-url'   => 'http://codepen.io/example',
+			'menu-item-url'   => 'https://codepen.io/example',
 		),
 		array(
 			'menu-item-title' => 'Flickr',
-			'menu-item-url'   => 'http://flickr.com/example',
+			'menu-item-url'   => 'https://flickr.com/example',
 		),
 		array(
 			'menu-item-title' => 'Feed',
-			'menu-item-url'   => 'http://example.com/feed/',
+			'menu-item-url'   => 'https://example.com/feed/',
 		),
 		array(
 			'menu-item-title' => 'Foursquare',
-			'menu-item-url'   => 'http://foursquare.com/example',
+			'menu-item-url'   => 'https://foursquare.com/example',
 		),
 		array(
 			'menu-item-title' => 'Instagram',
-			'menu-item-url'   => 'http://instagram.com/example',
+			'menu-item-url'   => 'https://instagram.com/example',
 		),
 		array(
 			'menu-item-title' => 'Tumblr',
-			'menu-item-url'   => 'http://tumblr.com/example',
+			'menu-item-url'   => 'https://tumblr.com/example',
 		),
 		array(
 			'menu-item-title' => 'Reddit',
-			'menu-item-url'   => 'http://reddit.com/example',
+			'menu-item-url'   => 'https://reddit.com/example',
 		),
 		array(
 			'menu-item-title' => 'Vimeo',
-			'menu-item-url'   => 'http://vimeo.com/example',
+			'menu-item-url'   => 'https://vimeo.com/example',
 		),
 		array(
 			'menu-item-title' => 'Digg',
-			'menu-item-url'   => 'http://digg.com/example',
+			'menu-item-url'   => 'https://digg.com/example',
 		),
 		array(
 			'menu-item-title' => 'Twitch',
-			'menu-item-url'   => 'http://twitch.tv/example',
+			'menu-item-url'   => 'https://twitch.tv/example',
 		),
 		array(
 			'menu-item-title' => 'Delicious',
-			'menu-item-url'   => 'http://delicious.com/example',
+			'menu-item-url'   => 'https://delicious.com/example',
 		),
 		array(
 			'menu-item-title' => 'Mail',
@@ -93,31 +93,31 @@ class Social_Command extends WP_CLI_Command {
 		),
 		array(
 			'menu-item-title' => 'Soundcloud',
-			'menu-item-url'   => 'http://soundcloud.com/example',
+			'menu-item-url'   => 'https://soundcloud.com/example',
 		),
 		array(
 			'menu-item-title' => 'WordPress',
-			'menu-item-url'   => 'http://wordpress.com/example',
+			'menu-item-url'   => 'https://wordpress.com/example',
 		),
 		array(
 			'menu-item-title' => 'Jsfiddle',
-			'menu-item-url'   => 'http://jsfiddle.net/example',
+			'menu-item-url'   => 'https://jsfiddle.net/example',
 		),
 		array(
 			'menu-item-title' => 'Tripadvisor',
-			'menu-item-url'   => 'http://tripadvisor.com/example',
+			'menu-item-url'   => 'https://tripadvisor.com/example',
 		),
 		array(
 			'menu-item-title' => 'Foursquare',
-			'menu-item-url'   => 'http://foursquare.com/example',
+			'menu-item-url'   => 'https://foursquare.com/example',
 		),
 		array(
 			'menu-item-title' => 'Angel',
-			'menu-item-url'   => 'http://angel.co/example',
+			'menu-item-url'   => 'https://angel.co/example',
 		),
 		array(
 			'menu-item-title' => 'Slack',
-			'menu-item-url'   => 'http://slack.com/example',
+			'menu-item-url'   => 'https://slack.com/example',
 		),
 	);
 
@@ -166,10 +166,19 @@ class Social_Command extends WP_CLI_Command {
 			WP_CLI::error( $menu_id->get_error_message() );
 		} else {
 			$total = count( $this->socials );
-			$count = $assoc_args['count'];
+			$count = absint( $assoc_args['count'] );
 
 			for ( $i = 0; $i < $total; $i++ ) {
-				$response = WP_CLI::launch_self( 'menu item add-custom', array( $menu_id, $this->socials[ $i ]['menu-item-title'], $this->socials[ $i ]['menu-item-url'] ), array(), false, true );
+				wp_update_nav_menu_item(
+					$menu_id,
+					0,
+					array(
+						'menu-item-title'  => $this->socials[ $i ]['menu-item-title'],
+						'menu-item-url'    => $this->socials[ $i ]['menu-item-url'],
+						'menu-item-status' => 'publish',
+					)
+				);
+
 				if ( $i === ( $count - 1 ) ) {
 					break;
 				}
