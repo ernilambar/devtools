@@ -1,8 +1,9 @@
 Feature: Test home commands.
 
-	Scenario: Test home with post mode
-		Given a WP install
+	Background:
+    Given a WP install
 
+	Scenario: Test home with post mode
 		When I run `wp dt home post`
 		Then STDOUT should be:
 			"""
@@ -28,8 +29,6 @@ Feature: Test home commands.
 			"""
 
 	Scenario: Test home with page mode
-		Given a WP install
-
 		When I run `wp dt home page`
 		Then STDOUT should be:
 			"""
@@ -56,4 +55,24 @@ Feature: Test home commands.
 		And STDOUT should contain:
 			"""
 			front-page
+			"""
+
+	Scenario: Test home in page mode with existing pages
+		When I run `wp post create --post_type=page --post_status=publish --post_author=1 --post_title='Front Page' --porcelain`
+		Then STDOUT should be a number
+		And save STDOUT as {FRONT_PAGE_ID}
+
+		When I run `wp post create --post_type=page --post_status=publish --post_author=1 --post_title='Blog' --porcelain`
+		Then STDOUT should be a number
+		And save STDOUT as {BLOG_PAGE_ID}
+
+		When I run `wp dt home page`
+		And I run `wp option list --search="page_*" --format=csv`
+		Then STDOUT should contain:
+			"""
+			page_on_front,{FRONT_PAGE_ID}
+			"""
+		And STDOUT should contain:
+			"""
+			page_for_posts,{BLOG_PAGE_ID}
 			"""
