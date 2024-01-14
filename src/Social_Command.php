@@ -179,7 +179,7 @@ class Social_Command extends WP_CLI_Command {
 					)
 				);
 
-				if ( $i === ( $count - 1 ) ) {
+				if ( ( $count - 1 ) === $i ) {
 					break;
 				}
 			}
