@@ -11,6 +11,11 @@ Quick links: [Using](#using) | [Installing](#installing)
 
 This package implements the following commands:
 
+- [wp dt home](#wp-dt-home)
+- [wp dt open](#wp-dt-open)
+- [wp dt social](#wp-dt-social)
+
+
 ### wp dt home
 
 Homepage settings.
